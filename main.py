@@ -3,8 +3,8 @@ import os
 import iam
 import gh
 
-PROJECT_ID = os.environ["PROJECT_ID"]
-SERVICE_ACCOUNT = os.environ["SERVICE_ACCOUNT"]
+PROJECT_ID = os.environ["INPUT_PROJECTID"]
+SERVICE_ACCOUNT = os.environ["INPUT_SERVICEACCOUNT"]
 
 gh_token = os.environ["PERSONAL_ACCESS_TOKEN"]
 secret_name = os.environ["GITHUB_SECRET_NAME"]
@@ -28,5 +28,5 @@ for repo in [x.strip() for x in owner_repository.split(',')]:
 # delete old service account keys
 for key in keys_to_delete:
     iam.delete_key(key)
-    logging.info("Deleted key {}".format(key))
 
+    logging.info("Deleted key {}".format(key))

@@ -1,6 +1,13 @@
 name: 'Rotate GCP service account keys'
 author: 'Miklos Niedermayer <miklos.niedermayer@aliz.ai>'
 description: Github action that rotates gcp service account keys and updates github secret
+inputs:
+  projectId:
+    description: "GCP project id to use"
+    required: true
+  serviceAccount:
+    description: "E-mail id of the service account to act on"
+    required: true
 runs:
     using: 'docker'
     image: 'Dockerfile'
