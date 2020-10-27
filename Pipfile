@@ -8,7 +8,6 @@ verify_ssl = true
 [packages]
 google-api-python-client = "*"
 oauth2client = "*"
-google-cloud-iam = "*"
 python-dateutil = "*"
 requests = "*"
 pynacl = "*"
