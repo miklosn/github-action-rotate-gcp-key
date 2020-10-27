@@ -6,9 +6,9 @@ import gh
 PROJECT_ID = os.environ["INPUT_PROJECTID"]
 SERVICE_ACCOUNT = os.environ["INPUT_SERVICEACCOUNT"]
 
-gh_token = os.environ["PERSONAL_ACCESS_TOKEN"]
-secret_name = os.environ["GITHUB_SECRET_NAME"]
-owner_repository = os.environ["OWNER_REPOSITORY"]
+gh_token = os.environ["INPUT_PERSONALACCESSTOKEN"]
+secret_name = os.environ["INPUT_SECRETNAME"]
+owner_repository = os.environ["INPUT_REPOSITORIES"]
 
 logging.basicConfig(format='%(levelname)s %(message)s', level=logging.INFO)
 
@@ -18,7 +18,8 @@ logging.info("Created new key {}".format(new_key_name))
 
 # list of keys to delete. we keep the currently created key and also skip keys newer than 1 minute (race condition)
 keys = iam.list_keys(PROJECT_ID, SERVICE_ACCOUNT)
-keys_to_delete = list(map(lambda item: item["name"], filter(lambda item: item["name"] != new_key_name, filter(iam.old_enough, keys))))
+keys_to_delete = list(map(lambda item: item["name"], filter(
+    lambda item: item["name"] != new_key_name, filter(iam.old_enough, keys))))
 
 # update secrets in all repos
 for repo in [x.strip() for x in owner_repository.split(',')]:

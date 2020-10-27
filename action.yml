@@ -8,6 +8,15 @@ inputs:
   serviceAccount:
     description: "E-mail id of the service account to act on"
     required: true
+  personalAccessToken:
+    description: "Github token that can update secrets in the repos"
+    required: true
+  repositories:
+    description: "List of repositories, separated by comma, to install secrets in"
+    required: true
+  secretName:
+    description: "Name of the GH secret"
+    required: true
 runs:
     using: 'docker'
     image: 'Dockerfile'
