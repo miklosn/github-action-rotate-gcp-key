@@ -1,0 +1,9 @@
+name: 'Rotate GCP service account keys'
+author: 'Miklos Niedermayer <miklos.niedermayer@aliz.ai>'
+description: Github action that rotates gcp service account keys and updates github secret
+runs:
+    using: 'docker'
+    image: 'Dockerfile'
+branding:
+    icon: 'check-circle'
+    color: 'blue'
