@@ -22,13 +22,12 @@ OWNER_REPOSITORY: one or multiple github repos. If multiple repos are specified 
 The secret will be updated in all repos.
 
 ## Example workflow
+```yaml
 
 name: Rotate GCP service account key
-
 #on:
 #  schedule:
 #    - cron: '0 12 * * 1'
-
 on: [workflow_dispatch]
 jobs:
   rotate:
@@ -49,5 +48,4 @@ jobs:
           GOOGLE_APPLICATION_CREDENTIALS: "${{ github.workspace }}/infra.json"
           GITHUB_SECRET_NAME: "GCP_SA_INFRA_KEY"
           SERVICE_ACCOUNT: "github-actions@example.iam.gserviceaccount.com"
-
- 
+```
