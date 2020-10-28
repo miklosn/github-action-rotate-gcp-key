@@ -36,6 +36,6 @@ def list_keys(project_id, service_account):
 
 
 def old_enough(item):
-    delete_before = datetime.now(pytz.utc) - timedelta(minutes=1)
+    delete_before = datetime.now(pytz.utc) - timedelta(minutes=5)
     d = dateutil.parser.parse(item["validAfterTime"])
     return d < delete_before
