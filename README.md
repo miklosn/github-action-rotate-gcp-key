@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.0.0
       - name: Setup GCP Service Account
-        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        uses: google-github-actions/setup-gcloud@master
         with:
           service_account_key: ${{ secrets.GCP_SA_INFRA_KEY }}
           export_default_credentials: true
