@@ -27,7 +27,7 @@ jobs:
           service_account_key: ${{ secrets.GCP_SA_INFRA_KEY }}
           export_default_credentials: true
       - name: rotate gcp keys
-        uses: miklosn/github-action-rotate-gcp-key@main
+        uses: miklosn/github-action-rotate-gcp-key@main # WARNING: use explicit Git commit sha instead of 'main' to avoid becoming a victim of supply chain attacks
         with:
           projectId: "example"
           serviceAccount: "github-actions@example.iam.gserviceaccount.com"
