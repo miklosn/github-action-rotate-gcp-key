@@ -6,11 +6,10 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-google-api-python-client = "*"
-oauth2client = "*"
-python-dateutil = "*"
-requests = "*"
-pynacl = "*"
+google-api-python-client = "~=2.0"
+google-auth = "~=2.0"
+requests = "~=2.31"
+pynacl = "~=1.5"
 
 [requires]
-python_version = "3.8"
+python_version = "3.12"

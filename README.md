@@ -1,5 +1,8 @@
 # github-action-rotate-gcp-key
 
+> **Warning**
+> GCP Workload Identity Federation now provides OIDC-based authentication for GitHub Actions, eliminating the need for service account keys entirely. You should strongly prefer using [google-github-actions/auth](https://github.com/google-github-actions/auth) with Workload Identity Federation instead of managing and rotating static keys.
+
 This action rotates GCP service account keys in with the following method:
 
 1. Create a new key for the SA

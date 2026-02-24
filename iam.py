@@ -1,10 +1,8 @@
-from datetime import datetime, timedelta
-import dateutil.parser
-import pytz
-from apiclient import discovery
-from oauth2client.client import GoogleCredentials
+from datetime import datetime, timedelta, timezone
+import google.auth
+from googleapiclient import discovery
 
-credentials = GoogleCredentials.get_application_default()
+credentials, project = google.auth.default()
 service = discovery.build(serviceName="iam", version="v1", credentials=credentials)
 
 
@@ -36,6 +34,6 @@ def list_keys(project_id, service_account):
 
 
 def old_enough(item):
-    delete_before = datetime.now(pytz.utc) - timedelta(minutes=5)
-    d = dateutil.parser.parse(item["validAfterTime"])
+    delete_before = datetime.now(timezone.utc) - timedelta(minutes=5)
+    d = datetime.fromisoformat(item["validAfterTime"])
     return d < delete_before
