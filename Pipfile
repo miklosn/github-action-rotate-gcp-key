@@ -8,7 +8,7 @@ verify_ssl = true
 [packages]
 google-api-python-client = "~=2.0"
 google-auth = "~=2.0"
-requests = "~=2.31"
+requests = "~=2.33"
 pynacl = "~=1.5"
 
 [requires]
